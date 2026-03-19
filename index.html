@@ -38,7 +38,7 @@
     overflow-x: hidden;
   }
 
-  /* ── NAV ── */
+  /* NAV */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -51,7 +51,6 @@
     align-items: center;
     justify-content: space-between;
     height: 68px;
-    transition: background var(--transition);
   }
 
   .nav-logo {
@@ -61,7 +60,6 @@
     letter-spacing: 0.02em;
     text-decoration: none;
   }
-
   .nav-logo span { color: var(--gold); }
 
   .nav-links {
@@ -70,7 +68,6 @@
     list-style: none;
     align-items: center;
   }
-
   .nav-links a {
     font-size: 0.82rem;
     font-weight: 500;
@@ -80,7 +77,6 @@
     text-decoration: none;
     transition: color var(--transition);
   }
-
   .nav-links a:hover { color: var(--gold-light); }
 
   .nav-cta {
@@ -93,10 +89,9 @@
     transition: background var(--transition) !important;
     text-transform: uppercase !important;
   }
-
   .nav-cta:hover { background: var(--gold-light) !important; }
 
-  /* ── HERO ── */
+  /* HERO */
   .hero {
     min-height: 100vh;
     background: var(--navy-deep);
@@ -106,7 +101,6 @@
     overflow: hidden;
     padding: 120px 6% 80px;
   }
-
   .hero-grid-bg {
     position: absolute;
     inset: 0;
@@ -115,7 +109,6 @@
       linear-gradient(90deg, rgba(200,151,58,0.04) 1px, transparent 1px);
     background-size: 60px 60px;
   }
-
   .hero-glow {
     position: absolute;
     width: 600px;
@@ -126,13 +119,11 @@
     right: -100px;
     pointer-events: none;
   }
-
   .hero-content {
     position: relative;
     z-index: 2;
     max-width: 720px;
   }
-
   .hero-eyebrow {
     display: inline-flex;
     align-items: center;
@@ -144,7 +135,6 @@
     color: var(--gold);
     margin-bottom: 28px;
   }
-
   .hero-eyebrow::before {
     content: '';
     display: block;
@@ -152,7 +142,6 @@
     height: 1px;
     background: var(--gold);
   }
-
   .hero h1 {
     font-family: var(--serif);
     font-size: clamp(2.6rem, 5.5vw, 4rem);
@@ -161,12 +150,7 @@
     margin-bottom: 24px;
     letter-spacing: -0.01em;
   }
-
-  .hero h1 em {
-    font-style: italic;
-    color: var(--gold-light);
-  }
-
+  .hero h1 em { font-style: italic; color: var(--gold-light); }
   .hero-sub {
     font-size: 1.05rem;
     color: rgba(255,255,255,0.65);
@@ -174,12 +158,7 @@
     margin-bottom: 44px;
     line-height: 1.8;
   }
-
-  .hero-actions {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
 
   .btn-primary {
     background: var(--gold);
@@ -196,7 +175,6 @@
     cursor: pointer;
     display: inline-block;
   }
-
   .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
 
   .btn-outline {
@@ -213,7 +191,6 @@
     transition: border-color var(--transition), color var(--transition);
     display: inline-block;
   }
-
   .btn-outline:hover { border-color: var(--gold); color: var(--gold-light); }
 
   .hero-stats {
@@ -224,7 +201,6 @@
     border-top: 1px solid rgba(255,255,255,0.08);
     flex-wrap: wrap;
   }
-
   .hero-stat-num {
     font-family: var(--serif);
     font-size: 2.2rem;
@@ -232,7 +208,6 @@
     line-height: 1;
     margin-bottom: 4px;
   }
-
   .hero-stat-label {
     font-size: 0.78rem;
     text-transform: uppercase;
@@ -241,7 +216,7 @@
     font-weight: 500;
   }
 
-  /* ── SECTION SHARED ── */
+  /* SECTIONS SHARED */
   section { padding: 100px 6%; }
 
   .section-label {
@@ -255,7 +230,6 @@
     color: var(--gold);
     margin-bottom: 16px;
   }
-
   .section-label::before {
     content: '';
     display: block;
@@ -263,7 +237,6 @@
     height: 1px;
     background: var(--gold);
   }
-
   h2.section-title {
     font-family: var(--serif);
     font-size: clamp(2rem, 4vw, 2.8rem);
@@ -271,12 +244,7 @@
     color: var(--navy);
     margin-bottom: 20px;
   }
-
-  h2.section-title em {
-    font-style: italic;
-    color: var(--gold);
-  }
-
+  h2.section-title em { font-style: italic; color: var(--gold); }
   .section-intro {
     font-size: 1rem;
     color: var(--gray-mid);
@@ -284,11 +252,8 @@
     line-height: 1.8;
   }
 
-  /* ── WHAT WE DO ── */
-  .what-we-do {
-    background: var(--white);
-  }
-
+  /* SERVICES */
+  .what-we-do { background: var(--white); }
   .services-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -298,14 +263,12 @@
     border-radius: var(--radius-lg);
     overflow: hidden;
   }
-
   .service-card {
     background: var(--cream);
     padding: 44px 36px;
     transition: background var(--transition);
     position: relative;
   }
-
   .service-card:hover { background: var(--navy); }
   .service-card:hover .service-icon { border-color: rgba(200,151,58,0.4); background: rgba(200,151,58,0.1); }
   .service-card:hover .service-icon svg { stroke: var(--gold); }
@@ -325,18 +288,12 @@
     transition: all var(--transition);
     background: var(--white);
   }
-
   .service-icon svg {
-    width: 22px;
-    height: 22px;
-    stroke: var(--navy);
-    fill: none;
-    stroke-width: 1.5;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+    width: 22px; height: 22px;
+    stroke: var(--navy); fill: none;
+    stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
     transition: stroke var(--transition);
   }
-
   .service-card h3 {
     font-family: var(--serif);
     font-size: 1.25rem;
@@ -344,14 +301,12 @@
     margin-bottom: 12px;
     transition: color var(--transition);
   }
-
   .service-card p {
     font-size: 0.88rem;
     color: var(--gray-mid);
     line-height: 1.75;
     transition: color var(--transition);
   }
-
   .service-tag {
     display: inline-block;
     margin-top: 20px;
@@ -366,13 +321,8 @@
     transition: all var(--transition);
   }
 
-  /* ── HOW IT WORKS ── */
-  .how-it-works {
-    background: var(--navy-deep);
-    position: relative;
-    overflow: hidden;
-  }
-
+  /* PROCESS */
+  .how-it-works { background: var(--navy-deep); position: relative; overflow: hidden; }
   .how-it-works .section-title { color: var(--white); }
   .how-it-works .section-intro { color: rgba(255,255,255,0.5); }
 
@@ -383,77 +333,40 @@
     margin-top: 64px;
     position: relative;
   }
-
   .process-track::before {
     content: '';
     position: absolute;
-    top: 28px;
-    left: 14%;
-    right: 14%;
+    top: 28px; left: 14%; right: 14%;
     height: 1px;
     background: linear-gradient(90deg, var(--gold), rgba(200,151,58,0.2));
     z-index: 0;
   }
-
   .process-step {
     text-align: center;
     padding: 0 20px;
     position: relative;
     z-index: 1;
   }
-
   .step-num {
-    width: 56px;
-    height: 56px;
+    width: 56px; height: 56px;
     border-radius: 50%;
     background: var(--navy-mid);
     border: 1px solid rgba(200,151,58,0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     font-family: var(--serif);
     font-size: 1.3rem;
     color: var(--gold);
     margin: 0 auto 28px;
     transition: background var(--transition), border-color var(--transition);
   }
+  .process-step:hover .step-num { background: var(--gold); color: var(--navy-deep); border-color: var(--gold); }
+  .process-step h4 { font-family: var(--serif); font-size: 1.05rem; color: var(--white); margin-bottom: 10px; }
+  .process-step p { font-size: 0.83rem; color: rgba(255,255,255,0.45); line-height: 1.75; }
 
-  .process-step:hover .step-num {
-    background: var(--gold);
-    color: var(--navy-deep);
-    border-color: var(--gold);
-  }
-
-  .process-step h4 {
-    font-family: var(--serif);
-    font-size: 1.05rem;
-    color: var(--white);
-    margin-bottom: 10px;
-  }
-
-  .process-step p {
-    font-size: 0.83rem;
-    color: rgba(255,255,255,0.45);
-    line-height: 1.75;
-  }
-
-  /* ── WHY US ── */
-  .why-us {
-    background: var(--cream);
-  }
-
-  .why-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-    margin-top: 60px;
-  }
-
-  .why-visual {
-    position: relative;
-  }
-
+  /* WHY US */
+  .why-us { background: var(--cream); }
+  .why-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-top: 60px; }
+  .why-visual { position: relative; }
   .why-visual-card {
     background: var(--navy);
     border-radius: var(--radius-lg);
@@ -462,18 +375,14 @@
     position: relative;
     overflow: hidden;
   }
-
   .why-visual-card::before {
     content: '';
     position: absolute;
-    top: -60px;
-    right: -60px;
-    width: 200px;
-    height: 200px;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
     border-radius: 50%;
     background: rgba(200,151,58,0.08);
   }
-
   .why-badge {
     display: inline-block;
     background: rgba(200,151,58,0.15);
@@ -486,91 +395,30 @@
     border-radius: 2px;
     margin-bottom: 28px;
   }
-
-  .why-big-num {
-    font-family: var(--serif);
-    font-size: 3.5rem;
-    color: var(--gold);
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-
-  .why-big-label {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.55);
-    line-height: 1.6;
-    max-width: 240px;
-  }
-
-  .why-divider {
-    height: 1px;
-    background: rgba(255,255,255,0.08);
-    margin: 32px 0;
-  }
-
-  .why-bullets {
-    list-style: none;
-  }
-
+  .why-big-num { font-family: var(--serif); font-size: 3.5rem; color: var(--gold); line-height: 1; margin-bottom: 8px; }
+  .why-big-label { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.6; max-width: 240px; }
+  .why-divider { height: 1px; background: rgba(255,255,255,0.08); margin: 32px 0; }
+  .why-bullets { list-style: none; }
   .why-bullets li {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    font-size: 0.88rem;
-    color: rgba(255,255,255,0.65);
-    margin-bottom: 16px;
-    line-height: 1.6;
+    display: flex; align-items: flex-start; gap: 14px;
+    font-size: 0.88rem; color: rgba(255,255,255,0.65);
+    margin-bottom: 16px; line-height: 1.6;
   }
-
   .why-bullets li::before {
-    content: '';
-    display: block;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--gold);
-    margin-top: 7px;
-    flex-shrink: 0;
+    content: ''; display: block;
+    width: 6px; height: 6px;
+    border-radius: 50%; background: var(--gold);
+    margin-top: 7px; flex-shrink: 0;
   }
-
-  .why-features {
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-  }
-
-  .why-feature {
-    padding-bottom: 28px;
-    border-bottom: 1px solid rgba(11,28,46,0.08);
-  }
-
+  .why-features { display: flex; flex-direction: column; gap: 28px; }
+  .why-feature { padding-bottom: 28px; border-bottom: 1px solid rgba(11,28,46,0.08); }
   .why-feature:last-child { border-bottom: none; padding-bottom: 0; }
+  .why-feature-title { font-family: var(--serif); font-size: 1.15rem; color: var(--navy); margin-bottom: 8px; }
+  .why-feature-desc { font-size: 0.88rem; color: var(--gray-mid); line-height: 1.75; }
 
-  .why-feature-title {
-    font-family: var(--serif);
-    font-size: 1.15rem;
-    color: var(--navy);
-    margin-bottom: 8px;
-  }
-
-  .why-feature-desc {
-    font-size: 0.88rem;
-    color: var(--gray-mid);
-    line-height: 1.75;
-  }
-
-  /* ── WHO WE SERVE ── */
-  .who-we-serve {
-    background: var(--white);
-  }
-
-  .audience-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin-top: 56px;
-  }
-
+  /* WHO WE SERVE */
+  .who-we-serve { background: var(--white); }
+  .audience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 56px; }
   .audience-card {
     border: 1px solid rgba(11,28,46,0.08);
     border-radius: var(--radius-lg);
@@ -579,124 +427,46 @@
     overflow: hidden;
     transition: border-color var(--transition), transform var(--transition);
   }
-
   .audience-card:hover { border-color: var(--gold); transform: translateY(-2px); }
-
   .audience-num {
-    position: absolute;
-    top: 24px;
-    right: 28px;
-    font-family: var(--serif);
-    font-size: 3.5rem;
-    color: rgba(11,28,46,0.04);
-    line-height: 1;
-    font-weight: 700;
+    position: absolute; top: 24px; right: 28px;
+    font-family: var(--serif); font-size: 3.5rem;
+    color: rgba(11,28,46,0.04); line-height: 1; font-weight: 700;
   }
-
-  .audience-card h3 {
-    font-family: var(--serif);
-    font-size: 1.35rem;
-    color: var(--navy);
-    margin-bottom: 14px;
-  }
-
-  .audience-card p {
-    font-size: 0.88rem;
-    color: var(--gray-mid);
-    line-height: 1.8;
-    margin-bottom: 20px;
-  }
-
-  .audience-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
+  .audience-card h3 { font-family: var(--serif); font-size: 1.35rem; color: var(--navy); margin-bottom: 14px; }
+  .audience-card p { font-size: 0.88rem; color: var(--gray-mid); line-height: 1.8; margin-bottom: 20px; }
+  .audience-tags { display: flex; flex-wrap: wrap; gap: 8px; }
   .tag {
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--navy);
-    background: var(--gray-soft);
-    padding: 5px 12px;
-    border-radius: 2px;
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--navy); background: var(--gray-soft); padding: 5px 12px; border-radius: 2px;
   }
 
-  /* ── SUBMIT A DEAL ── */
-  .submit-deal {
-    background: var(--navy-deep);
-    position: relative;
-    overflow: hidden;
-  }
-
+  /* SUBMIT FORM */
+  .submit-deal { background: var(--navy-deep); position: relative; overflow: hidden; }
   .submit-deal::before {
-    content: '';
-    position: absolute;
-    inset: 0;
+    content: ''; position: absolute; inset: 0;
     background-image:
       linear-gradient(rgba(200,151,58,0.03) 1px, transparent 1px),
       linear-gradient(90deg, rgba(200,151,58,0.03) 1px, transparent 1px);
     background-size: 60px 60px;
   }
-
   .submit-deal .section-title { color: var(--white); }
   .submit-deal .section-intro { color: rgba(255,255,255,0.5); }
 
   .deal-layout {
-    display: grid;
-    grid-template-columns: 1fr 1.1fr;
-    gap: 72px;
-    align-items: start;
-    position: relative;
-    z-index: 2;
-    margin-top: 56px;
+    display: grid; grid-template-columns: 1fr 1.1fr;
+    gap: 72px; align-items: start;
+    position: relative; z-index: 2; margin-top: 56px;
   }
-
-  .deal-why h4 {
-    font-family: var(--serif);
-    font-size: 1.4rem;
-    color: var(--white);
-    margin-bottom: 20px;
-  }
-
-  .deal-why-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .deal-why-list li {
-    display: flex;
-    gap: 16px;
-    font-size: 0.88rem;
-    color: rgba(255,255,255,0.6);
-    line-height: 1.7;
-  }
-
+  .deal-why h4 { font-family: var(--serif); font-size: 1.4rem; color: var(--white); margin-bottom: 20px; }
+  .deal-why-list { list-style: none; display: flex; flex-direction: column; gap: 20px; }
+  .deal-why-list li { display: flex; gap: 16px; font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.7; }
   .deal-why-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 6px;
-    background: rgba(200,151,58,0.12);
-    border: 1px solid rgba(200,151,58,0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+    width: 36px; height: 36px; border-radius: 6px;
+    background: rgba(200,151,58,0.12); border: 1px solid rgba(200,151,58,0.2);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
   }
-
-  .deal-why-icon svg {
-    width: 16px;
-    height: 16px;
-    stroke: var(--gold);
-    fill: none;
-    stroke-width: 1.5;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
+  .deal-why-icon svg { width: 16px; height: 16px; stroke: var(--gold); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 
   .deal-form-wrap {
     background: rgba(255,255,255,0.04);
@@ -704,19 +474,12 @@
     border-radius: var(--radius-lg);
     padding: 44px;
   }
-
   .form-group { margin-bottom: 20px; }
-
   .form-group label {
-    display: block;
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
-    margin-bottom: 8px;
+    display: block; font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px;
   }
-
   .form-group input,
   .form-group select,
   .form-group textarea {
@@ -725,142 +488,88 @@
     border: 1px solid rgba(255,255,255,0.1);
     border-radius: var(--radius);
     padding: 12px 16px;
-    font-family: var(--sans);
-    font-size: 0.9rem;
-    color: var(--white);
-    outline: none;
-    transition: border-color var(--transition);
-    appearance: none;
+    font-family: var(--sans); font-size: 0.9rem; color: var(--white);
+    outline: none; transition: border-color var(--transition); appearance: none;
   }
-
   .form-group input::placeholder,
   .form-group textarea::placeholder { color: rgba(255,255,255,0.25); }
-
   .form-group input:focus,
   .form-group select:focus,
   .form-group textarea:focus { border-color: var(--gold); }
-
   .form-group textarea { resize: vertical; min-height: 100px; }
-
   .form-group select option { background: var(--navy); }
-
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
   .form-submit {
-    width: 100%;
-    background: var(--gold);
-    color: var(--navy-deep);
-    border: none;
-    padding: 15px;
-    border-radius: var(--radius);
-    font-family: var(--sans);
-    font-size: 0.88rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background var(--transition), transform var(--transition);
+    width: 100%; background: var(--gold); color: var(--navy-deep);
+    border: none; padding: 15px; border-radius: var(--radius);
+    font-family: var(--sans); font-size: 0.88rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    cursor: pointer; transition: background var(--transition), transform var(--transition);
     margin-top: 8px;
   }
-
   .form-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .form-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
-  /* ── CONTACT ── */
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 32px 20px;
+  }
+  .form-success-icon {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: rgba(200,151,58,0.15); border: 1px solid rgba(200,151,58,0.3);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+  }
+  .form-success-icon svg { width: 24px; height: 24px; stroke: var(--gold); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .form-success h4 { font-family: var(--serif); font-size: 1.4rem; color: var(--white); margin-bottom: 10px; }
+  .form-success p { font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.7; }
+
+  .form-error {
+    display: none;
+    background: rgba(226,75,74,0.1);
+    border: 1px solid rgba(226,75,74,0.3);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    color: #F09595;
+    margin-top: 12px;
+    text-align: center;
+  }
+
+  /* CONTACT STRIP */
   .contact-strip {
-    background: var(--gold);
-    padding: 60px 6%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 32px;
-    flex-wrap: wrap;
+    background: var(--gold); padding: 60px 6%;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 32px; flex-wrap: wrap;
   }
-
-  .contact-strip-text h3 {
-    font-family: var(--serif);
-    font-size: 1.8rem;
-    color: var(--navy-deep);
-    line-height: 1.2;
-    margin-bottom: 6px;
-  }
-
-  .contact-strip-text p {
-    font-size: 0.9rem;
-    color: rgba(11,28,46,0.65);
-  }
+  .contact-strip-text h3 { font-family: var(--serif); font-size: 1.8rem; color: var(--navy-deep); line-height: 1.2; margin-bottom: 6px; }
+  .contact-strip-text p { font-size: 0.9rem; color: rgba(11,28,46,0.65); }
 
   .btn-dark {
-    background: var(--navy-deep);
-    color: var(--white);
-    padding: 15px 32px;
-    border-radius: var(--radius);
-    font-weight: 600;
-    font-size: 0.88rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-decoration: none;
-    white-space: nowrap;
-    transition: background var(--transition);
-    display: inline-block;
+    background: var(--navy-deep); color: var(--white);
+    padding: 15px 32px; border-radius: var(--radius);
+    font-weight: 600; font-size: 0.88rem; letter-spacing: 0.08em;
+    text-transform: uppercase; text-decoration: none; white-space: nowrap;
+    transition: background var(--transition); display: inline-block;
   }
-
   .btn-dark:hover { background: var(--navy-mid); }
 
-  /* ── FOOTER ── */
-  footer {
-    background: var(--navy-deep);
-    padding: 56px 6% 32px;
-    border-top: 1px solid rgba(200,151,58,0.1);
-  }
-
+  /* FOOTER */
+  footer { background: var(--navy-deep); padding: 56px 6% 32px; border-top: 1px solid rgba(200,151,58,0.1); }
   .footer-top {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr;
-    gap: 48px;
-    padding-bottom: 40px;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    margin-bottom: 28px;
+    display: grid; grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 48px; padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 28px;
   }
-
-  .footer-brand p {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.4);
-    line-height: 1.75;
-    margin-top: 12px;
-    max-width: 300px;
-  }
-
-  .footer-col h5 {
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.35);
-    margin-bottom: 16px;
-  }
-
-  .footer-col a {
-    display: block;
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.55);
-    text-decoration: none;
-    margin-bottom: 10px;
-    transition: color var(--transition);
-  }
-
+  .footer-brand p { font-size: 0.85rem; color: rgba(255,255,255,0.4); line-height: 1.75; margin-top: 12px; max-width: 300px; }
+  .footer-col h5 { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 16px; }
+  .footer-col a { display: block; font-size: 0.85rem; color: rgba(255,255,255,0.55); text-decoration: none; margin-bottom: 10px; transition: color var(--transition); }
   .footer-col a:hover { color: var(--gold); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: rgba(255,255,255,0.25); flex-wrap: wrap; gap: 8px; }
 
-  .footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.25);
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  /* ── RESPONSIVE ── */
+  /* RESPONSIVE */
   @media (max-width: 900px) {
     .process-track { grid-template-columns: 1fr 1fr; }
     .process-track::before { display: none; }
@@ -870,7 +579,6 @@
     .footer-top { grid-template-columns: 1fr 1fr; }
     .nav-links { display: none; }
   }
-
   @media (max-width: 600px) {
     section { padding: 72px 5%; }
     .services-grid { grid-template-columns: 1fr; }
@@ -880,12 +588,11 @@
     .hero-stats { gap: 28px; }
   }
 
-  /* ── ANIMATIONS ── */
+  /* ANIMATIONS */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-
   .hero-content { animation: fadeUp 0.8s ease forwards; }
   .hero-stats   { animation: fadeUp 0.8s 0.3s ease both; }
 </style>
@@ -896,7 +603,7 @@
 <nav>
   <a class="nav-logo" href="#top">LC <span>Engineering</span> & Development</a>
   <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
+    <li><a href="#services">How We Operate</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#why">Why Us</a></li>
     <li><a href="#clients">Who We Serve</a></li>
@@ -933,7 +640,7 @@
   </div>
 </section>
 
-<!-- SERVICES -->
+<!-- HOW WE OPERATE -->
 <section class="what-we-do" id="services">
   <div class="section-label">How We Operate</div>
   <h2 class="section-title">Engineering-Driven<br><em>Land Acquisition</em></h2>
@@ -975,11 +682,10 @@
       <p>We apply engineering-based, systems-level thinking to identify technical risk early — so every parcel we bring to builders has already been vetted for development readiness before any transaction closes.</p>
       <span class="service-tag">Early Stage</span>
     </div>
-
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
+<!-- PROCESS -->
 <section class="how-it-works" id="process">
   <div class="section-label">Our Process</div>
   <h2 class="section-title" style="color:var(--white)">From Parcel to <em>Decision</em><br>in Four Steps</h2>
@@ -1117,7 +823,7 @@
   </div>
 </section>
 
-<!-- SUBMIT A DEAL -->
+<!-- SUBMIT A PARCEL -->
 <section class="submit-deal" id="submit">
   <div class="section-label">Know a Parcel?</div>
   <h2 class="section-title">Tell Us About<br>the <em>Land</em></h2>
@@ -1143,74 +849,88 @@
           <div class="deal-why-icon">
             <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
           </div>
-          <div>Our engineer conducts a full internal feasibility evaluation during the inspection period — site conditions, infrastructure, and cost modeling.</div>
+          <div>Our team conducts a full internal engineering-based feasibility evaluation during the inspection period — site conditions, infrastructure, and cost modeling.</div>
         </li>
         <li>
           <div class="deal-why-icon">
             <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.12 1.18 2 2 0 012.1.02h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.97 6.97l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
           </div>
-          <div>We proceed, renegotiate, or walk away based on our engineering findings — then assign the contract to a qualified residential builder.</div>
+          <div>We proceed, renegotiate, or walk away based on our engineering-based findings — then assign the contract to a qualified residential builder.</div>
         </li>
       </ul>
     </div>
 
     <div class="deal-form-wrap">
-      <div class="form-row">
-        <div class="form-group">
-          <label>First Name</label>
-          <input type="text" placeholder="Mateo"/>
+      <!-- FORM -->
+      <div id="parcel-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input id="f-firstname" type="text" placeholder="First name"/>
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input id="f-lastname" type="text" placeholder="Last name"/>
+          </div>
         </div>
         <div class="form-group">
-          <label>Last Name</label>
-          <input type="text" placeholder="Last name"/>
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Email Address</label>
-        <input type="email" placeholder="you@example.com"/>
-      </div>
-      <div class="form-group">
-        <label>Phone Number</label>
-        <input type="tel" placeholder="(555) 000-0000"/>
-      </div>
-      <div class="form-group">
-        <label>Parcel Address or Location</label>
-        <input type="text" placeholder="City, State or full address"/>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Approximate Lot Size</label>
-          <input type="text" placeholder="e.g. 0.5 acres"/>
+          <label>Email Address</label>
+          <input id="f-email" type="email" placeholder="you@example.com"/>
         </div>
         <div class="form-group">
-          <label>Zoning / Intended Use</label>
-          <select>
+          <label>Phone Number</label>
+          <input id="f-phone" type="tel" placeholder="(555) 000-0000"/>
+        </div>
+        <div class="form-group">
+          <label>Parcel Address or Location</label>
+          <input id="f-address" type="text" placeholder="City, State or full address"/>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Approximate Lot Size</label>
+            <input id="f-lotsize" type="text" placeholder="e.g. 0.5 acres"/>
+          </div>
+          <div class="form-group">
+            <label>Zoning / Intended Use</label>
+            <select id="f-zoning">
+              <option value="" disabled selected>Select one</option>
+              <option>Single-Family Residential</option>
+              <option>Multi-Family</option>
+              <option>ADU / Accessory Unit</option>
+              <option>Subdivision</option>
+              <option>Unknown / Unsure</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Your Role</label>
+          <select id="f-role">
             <option value="" disabled selected>Select one</option>
-            <option>Single-Family Residential</option>
-            <option>Multi-Family</option>
-            <option>ADU / Accessory Unit</option>
-            <option>Subdivision</option>
-            <option>Unknown / Unsure</option>
+            <option>Landowner / Seller</option>
+            <option>Wholesaler / Bird Dog</option>
+            <option>Real Estate Agent</option>
+            <option>Builder / Developer</option>
+            <option>Buying to Build</option>
             <option>Other</option>
           </select>
         </div>
+        <div class="form-group">
+          <label>Additional Notes</label>
+          <textarea id="f-notes" placeholder="Share anything relevant about the parcel — known conditions, asking price, urgency, etc."></textarea>
+        </div>
+        <button type="button" class="form-submit" id="form-submit-btn" onclick="submitParcelForm()">Submit Parcel →</button>
+        <div class="form-error" id="form-error">Something went wrong. Please try again or reach out directly.</div>
       </div>
-      <div class="form-group">
-        <label>Your Role</label>
-        <select>
-          <option value="" disabled selected>Select one</option>
-          <option>Landowner / Seller</option>
-          <option>Wholesaler / Bird Dog</option>
-          <option>Real Estate Agent</option>
-          <option>Builder / Developer</option>
-          <option>Other</option>
-        </select>
+
+      <!-- SUCCESS STATE -->
+      <div class="form-success" id="form-success">
+        <div class="form-success-icon">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h4>We've received your parcel</h4>
+        <p>We'll review the details and get back to you within 24 hours to let you know if it fits our acquisition criteria.</p>
       </div>
-      <div class="form-group">
-        <label>Additional Notes</label>
-        <textarea placeholder="Share anything relevant about the parcel — known conditions, asking price, urgency, etc."></textarea>
-      </div>
-      <button type="button" class="form-submit">Submit Parcel →</button>
     </div>
   </div>
 </section>
@@ -1221,7 +941,7 @@
     <h3>Prefer to talk first?</h3>
     <p>Schedule a quick call to tell us about the parcel — we'll let you know if it fits.</p>
   </div>
-  <a href="/cdn-cgi/l/email-protection#abc8c4c5dfcac8dfebc7c8cec5ccc2c5ceced9c2c5cc85c8c4c6" class="btn-dark">Book a Call</a>
+  <a href="mailto:contact@lcengineeringanddevelopment.dev" class="btn-dark">Book a Call</a>
 </div>
 
 <!-- FOOTER -->
@@ -1232,7 +952,7 @@
       <p>Engineering-based land development feasibility analysis for residential construction projects. We evaluate, acquire, and assign land with engineering rigor at every step.</p>
     </div>
     <div class="footer-col">
-      <h5>Services</h5>
+      <h5>How We Operate</h5>
       <a href="#services">Site Feasibility Review</a>
       <a href="#services">Infrastructure & Utilities Review</a>
       <a href="#services">Cost Modeling</a>
@@ -1243,9 +963,77 @@
       <a href="#process">Our Process</a>
       <a href="#why">Why Us</a>
       <a href="#clients">Who We Serve</a>
-      <a href="#submit">Submit a Deal</a>
+      <a href="#submit">Submit a Parcel</a>
     </div>
   </div>
   <div class="footer-bottom">
     <span>© 2025 LC Engineering & Development LLC. All rights reserved.</span>
-    <span>Engineering feasibility services · Not a licensed real estate broker or a
+    <span>LC Engineering operates as a principal buyer — not a licensed real estate broker or agent.</span>
+  </div>
+</footer>
+
+<script>
+async function submitParcelForm() {
+  const btn = document.getElementById('form-submit-btn');
+  const errorEl = document.getElementById('form-error');
+
+  const firstName = document.getElementById('f-firstname').value.trim();
+  const lastName  = document.getElementById('f-lastname').value.trim();
+  const email     = document.getElementById('f-email').value.trim();
+  const phone     = document.getElementById('f-phone').value.trim();
+  const address   = document.getElementById('f-address').value.trim();
+  const lotSize   = document.getElementById('f-lotsize').value.trim();
+  const zoning    = document.getElementById('f-zoning').value;
+  const role      = document.getElementById('f-role').value;
+  const notes     = document.getElementById('f-notes').value.trim();
+
+  if (!firstName || !lastName || !email || !phone || !address) {
+    errorEl.textContent = 'Please fill in your name, email, phone, and parcel address before submitting.';
+    errorEl.style.display = 'block';
+    return;
+  }
+
+  errorEl.style.display = 'none';
+  btn.disabled = true;
+  btn.textContent = 'Submitting...';
+
+  const payload = {
+    first_name:   firstName,
+    last_name:    lastName,
+    email:        email,
+    phone:        phone,
+    address:      address,
+    lot_size:     lotSize,
+    zoning:       zoning,
+    role:         role,
+    notes:        notes,
+    source:       'LC Engineering Website — Submit a Parcel Form'
+  };
+
+  try {
+    const response = await fetch(
+      'https://services.leadconnectorhq.com/hooks/bp4lwvcT0gLJp32JbndW/webhook-trigger/c5160ecb-0704-4bc7-bfe1-b0df39520fa7',
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }
+    );
+
+    if (response.ok) {
+      document.getElementById('parcel-form').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    } else {
+      throw new Error('Server responded with ' + response.status);
+    }
+  } catch (err) {
+    errorEl.textContent = 'Something went wrong. Please try again or reach out directly.';
+    errorEl.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Submit Parcel →';
+  }
+}
+</script>
+
+</body>
+</html>
