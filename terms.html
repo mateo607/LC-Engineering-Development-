@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Terms of Service — LC Engineering & Development</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0B1C2E;
+    --navy-deep: #071422;
+    --navy-mid: #152840;
+    --gold: #C8973A;
+    --gold-light: #E8B45A;
+    --cream: #FAF7F2;
+    --white: #FFFFFF;
+    --gray-soft: #F1EDE6;
+    --gray-mid: #8C8780;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --radius: 4px;
+    --radius-lg: 12px;
+    --transition: 0.3s ease;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--navy);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(11,28,46,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(200,151,58,0.15);
+    padding: 0 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    color: var(--white);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+
+  .nav-back {
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+  .nav-back:hover { color: var(--gold); }
+
+  .page-hero {
+    background: var(--navy-deep);
+    padding: 140px 6% 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(200,151,58,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200,151,58,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .page-hero-content { position: relative; z-index: 2; }
+
+  .page-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .page-eyebrow::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .page-hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+
+  .page-hero p {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.45);
+    margin-top: 8px;
+  }
+
+  .doc-body {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 80px 6%;
+  }
+
+  .doc-section { margin-bottom: 48px; }
+
+  .doc-section h2 {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    color: var(--navy);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(11,28,46,0.08);
+  }
+
+  .doc-section p {
+    font-size: 0.95rem;
+    color: var(--gray-mid);
+    line-height: 1.85;
+    margin-bottom: 14px;
+  }
+
+  .doc-section ul {
+    list-style: none;
+    margin: 12px 0 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .doc-section ul li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.95rem;
+    color: var(--gray-mid);
+    line-height: 1.75;
+  }
+
+  .doc-section ul li::before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    margin-top: 9px;
+    flex-shrink: 0;
+  }
+
+  .doc-section a {
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(200,151,58,0.3);
+    transition: border-color var(--transition);
+  }
+  .doc-section a:hover { border-color: var(--gold); }
+
+  .doc-highlight {
+    background: var(--white);
+    border: 1px solid rgba(11,28,46,0.08);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 20px 24px;
+    margin: 20px 0;
+    font-size: 0.9rem;
+    color: var(--navy);
+    line-height: 1.75;
+  }
+
+  footer {
+    background: var(--navy-deep);
+    padding: 40px 6%;
+    border-top: 1px solid rgba(200,151,58,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-logo {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .footer-logo span { color: var(--gold); }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+  }
+  .footer-links a {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+  .footer-links a:hover { color: var(--gold); }
+
+  .footer-copy {
+    width: 100%;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.2);
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    margin-top: 8px;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">LC <span>Engineering</span> & Development</a>
+  <a class="nav-back" href="/">← Back to Home</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="page-eyebrow">Legal</div>
+    <h1>Terms of Service</h1>
+    <p>Last updated: March 2025</p>
+  </div>
+</div>
+
+<div class="doc-body">
+
+  <div class="doc-section">
+    <h2>1. Agreement to Terms</h2>
+    <p>These Terms of Service ("Terms") govern your access to and use of the website located at lcengineeringdevelopment.com (the "Site") operated by LC Engineering & Development LLC ("LC Engineering," "we," "us," or "our"), a Florida limited liability company.</p>
+    <p>By accessing the Site or submitting any form or inquiry, you agree to be bound by these Terms. If you do not agree, please do not use the Site.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2>2. Nature of Business</h2>
+    <p>LC Engineering & Development LLC is a land acquisition company that identifies, evaluates, and acquires vacant land parcels for residential development purposes across Florida and other states in the United States. The company enters into purchase agreements as a principal buyer — not as a licensed real estate broker, real estate agent, or licensed engineering firm.</p>
+    <div class="doc-highlight">
+      LC Engineering & Development LLC does not provide real estate brokerage services, licensed engineering services, or act as a representative or agent for any buyer or seller. All transactions are entered into by LC Engineering as a direct principal party.
+    </div>
+    <p>Any engineering-based evaluation or analysis referenced on this Site is conducted internally by LC Engineering for its own acquisition decision-making purposes and does not constitute a professional engineering service rendered to any third party.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2>3. Parcel Submissions</h2>
+    <p>By submitting a parcel inquiry through our Site, you acknowledge and agree to the following:</p>
+    <ul>
+      <li>Submission of a parcel does not constitute, create, or imply any binding purchase agreement, offer, letter of intent, or contractual obligation of any kind on the part of LC Engineering & Development LLC</li>
+      <li>LC Engineering reserves the right to decline, ignore, or not respond to any submission at its sole discretion</li>
+      <li>Information submitted is used solely for internal evaluation of whether the parcel meets LC Engineering's acquisition criteria</li>
+      <li>You represent that you have the right to submit the parcel information provided and that such information is accurate to the best of your knowledge</li>
+      <li>No compensation, finder's fee, commission, or payment of any kind is implied or guaranteed to the person submitting a parcel unless separately agreed upon in writing</li>
+    </ul>
+  </div>
+
+  <div class="doc-section">
+    <h2>4. SMS and Communications Consent</h2>
+    <p>By submitting a form on our Site and checking the consent box, you agree to receive text messages from LC Engineering & Development LLC at the phone number you provided. These messages may include:</p>
+    <ul>
+      <li>Transactional messages confirming receipt of your submission</li>
+      <li>Follow-up communications regarding your parcel inquiry</li>
+      <li>Marketing messages about land acquisition opportunities, if you have explicitly consented</li>
+    </ul>
+    <p>You may opt out of SMS communications at any time by replying STOP to any message. For help, reply HELP. Message and data rates may apply. Frequency varies. SMS consent is never sold or shared with third parties.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2>5. No Warranties or Guarantees</h2>
+    <p>The Site and its content are provided on an "as is" and "as available" basis without warranties of any kind, either express or implied. LC Engineering does not warrant that:</p>
+    <ul>
+      <li>The Site will be available, uninterrupted, or error-free at all times</li>
+      <li>Any parcel submitted will be evaluated, purchased, or responded to</li>
+      <li>Any information on the Site is complete, accurate, or current</li>
+    </ul>
+    <p>Nothing on this Site constitutes legal, financial, real estate, or engineering advice. You should consult qualified licensed professionals for advice specific to your situation.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2>6. Limitation of Liability</h2>
+    <p>To the fullest extent permitted by applicable law, LC Engineering & Development LLC, its members, managers, employees, and agents shall not be liable for any indirect, incidental, consequential, special, or punitive damages arising out of or related to your use of the Site, submission of a parcel, or any communication with LC Engineering.</p>
+    <p>In no event shall LC Engineering's total liability to you exceed the amount of zero dollars ($0.00), as no fees or payments are collected through this Site.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2>7. Intellectual Property</h2>
+    <p>All content on this Site — including text, design, graphics, and layout — is the property of LC Engineering & Development LLC and is protected by applicable intellectual property laws. You may not reproduce, distribute, or use any content from this Site without prior written permission.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2>8. Third-Party Links and Services</h2>
+    <p>The Site may contain links to third-party websites or services. LC Engineering is not responsible for the content, privacy practices, or terms of any third-party sites. Your use of third-party services is at your own risk.</p>
+    <p>LC Engineering uses GoHighLevel (GHL) as a CRM platform to manage contacts and communications. Your use of our forms is subject to GHL's own terms and privacy policies in addition to ours.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2>9. Geographic Scope and Governing Law</h2>
+    <p>LC Engineering & Development LLC is a Florida limited liability company and may pursue land acquisition opportunities in Florida and in other states across the United States. The company's operations are not limited to any single state or region.</p>
+    <p>These Terms shall be governed by and construed in accordance with the laws of the State of Florida, without regard to its conflict of law provisions, regardless of the state in which a parcel is located. Any disputes arising under these Terms shall be subject to the exclusive jurisdiction of the courts located in Miami-Dade County, Florida.</p>
+    <p>By submitting a parcel or using this Site, you consent to the personal jurisdiction of the courts of the State of Florida and waive any objection to such jurisdiction or venue, regardless of where you are located or where the subject property is situated.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2>10. Changes to These Terms</h2>
+    <p>We reserve the right to update or modify these Terms at any time. When we do, the "Last updated" date at the top of this page will be revised. Your continued use of the Site after any changes constitutes your acceptance of the updated Terms.</p>
+  </div>
+
+  <div class="doc-section">
+    <h2>11. Contact</h2>
+    <p>For any questions regarding these Terms of Service, please contact us:</p>
+    <p><strong>LC Engineering & Development LLC</strong><br/>
+    Email: <a href="mailto:privacy@lcend.com">privacy@lcend.com</a><br/>
+    Website: <a href="https://lcengineeringdevelopment.com">lcengineeringdevelopment.com</a></p>
+  </div>
+
+</div>
+
+<footer>
+  <a class="footer-logo" href="/">LC <span>Engineering</span> & Development</a>
+  <div class="footer-links">
+    <a href="/privacy">Privacy Policy</a>
+    <a href="/terms">Terms of Service</a>
+    <a href="/#submit">Submit a Parcel</a>
+  </div>
+  <div class="footer-copy">
+    © 2025 LC Engine
