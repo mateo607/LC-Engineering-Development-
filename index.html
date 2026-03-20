@@ -618,7 +618,7 @@
   <div class="hero-content">
     <div class="hero-eyebrow">Engineering-Grade Land Analysis</div>
     <h1>Turning <em>Raw Land</em><br>into Buildable Opportunity</h1>
-    <p class="hero-sub">LC Engineering & Development applies mechanical engineering principles to identify, evaluate, and acquire vacant land parcels — bringing development-ready opportunities to residential builders across South Florida.</p>
+    <p class="hero-sub">LC Engineering & Development applies mechanical engineering principles to identify, evaluate, and acquire vacant land parcels — bringing development-ready opportunities to residential builders across the United States.</p>
     <div class="hero-actions">
       <a href="#submit" class="btn-primary">Submit a Parcel</a>
       <a href="#services" class="btn-outline">How We Operate</a>
@@ -941,7 +941,7 @@
     <h3>Prefer to talk first?</h3>
     <p>Schedule a quick call to tell us about the parcel — we'll let you know if it fits.</p>
   </div>
-  <a href="mailto:contact@lcengineeringanddevelopment.dev" class="btn-dark">Book a Call</a>
+  <a href="/cdn-cgi/l/email-protection#d3b0bcbda7b2b0a793bfb0b6bdb4babdb6b6a1babdb4b2bdb7b7b6a5b6bfbca3beb6bda7fdb7b6a5" class="btn-dark">Book a Call</a>
 </div>
 
 <!-- FOOTER -->
@@ -972,7 +972,7 @@
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 async function submitParcelForm() {
   const btn = document.getElementById('form-submit-btn');
   const errorEl = document.getElementById('form-error');
@@ -1012,7 +1012,7 @@ async function submitParcelForm() {
 
   try {
     const response = await fetch(
-      'https://services.leadconnectorhq.com/hooks/bp4lwvcT0gLJp32JbndW/webhook-trigger/c5160ecb-0704-4bc7-bfe1-b0df39520fa7',
+      'https://services.leadconnectorhq.com/hooks/bp4lwvcT0gLJp32JbndW/webhook-trigger/96052fe4-e940-415a-8e63-a923fff0c01a',
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -1027,13 +1027,4 @@ async function submitParcelForm() {
       throw new Error('Server responded with ' + response.status);
     }
   } catch (err) {
-    errorEl.textContent = 'Something went wrong. Please try again or reach out directly.';
-    errorEl.style.display = 'block';
-    btn.disabled = false;
-    btn.textContent = 'Submit Parcel →';
-  }
-}
-</script>
-
-</body>
-</html>
+    errorEl.textContent = 'Something went wrong. Please try
