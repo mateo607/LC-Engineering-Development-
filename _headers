@@ -1,3 +1,0 @@
-/*
-  Content-Security-Policy: frame-src https://api.leadconnectorhq.com https://link.msgsndr.com 'self'
-  X-Frame-Options: SAMEORIGIN
