@@ -534,15 +534,20 @@
     gap: 48px; padding-bottom: 40px;
     border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 28px;
   }
-  .footer-brand p { font-size: 0.85rem; color: rgba(255,255,255,0.4); line-height: 1.75; margin-top: 12px; max-width: 300px; }
   .footer-col h5 { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 16px; }
   .footer-col a { display: block; font-size: 0.85rem; color: rgba(255,255,255,0.55); text-decoration: none; margin-bottom: 10px; transition: color var(--transition); }
   .footer-col a:hover { color: var(--gold); }
   .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: rgba(255,255,255,0.25); flex-wrap: wrap; gap: 8px; }
 
   /* RESPONSIVE */
-  @media (max-width: 900px) {
-    .process-track { grid-template-columns: 1fr 1fr; }
+  .nav-mobile-btn { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+  .nav-mobile-btn span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all var(--transition); }
+  .nav-mobile-menu { display: none; position: fixed; top: 68px; left: 0; right: 0; background: var(--navy-deep); border-bottom: 1px solid rgba(200,151,58,0.15); z-index: 99; padding: 20px 6%; flex-direction: column; gap: 0; }
+  .nav-mobile-menu.open { display: flex; }
+  .nav-mobile-menu a { font-size: 0.9rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color var(--transition); }
+  .nav-mobile-menu a:last-child { border-bottom: none; color: var(--gold); }
+  .nav-mobile-menu a:hover { color: var(--gold-light); }
+  @media (max-width: 900px) { .nav-links { display: none; } .nav-mobile-btn { display: flex; } }
     .process-track::before { display: none; }
     .why-layout { grid-template-columns: 1fr; }
     .audience-grid { grid-template-columns: 1fr; }
@@ -567,20 +572,35 @@
   .hero-content { animation: fadeUp 0.8s ease forwards; }
   .hero-stats   { animation: fadeUp 0.8s 0.3s ease both; }
 </style>
+<script>
+function toggleNav() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+</script>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#top">LC <span>Engineering</span> & Development</a>
+  <a class="nav-logo" href="/">LC <span>Engineering</span> & Development</a>
   <ul class="nav-links">
-    <li><a href="#services">How We Operate</a></li>
-    <li><a href="#process">Process</a></li>
-    <li><a href="#why">Why Us</a></li>
-    <li><a href="#clients">Who We Serve</a></li>
-    <li><a href="https://api.leadconnectorhq.com/widget/form/1t5mvnqDNFJsBOctN7qj?notrack=true" target="_blank" rel="noopener noreferrer" class="nav-cta">Submit a Parcel</a></li>
+    <li><a href="/" class="active">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <li><a href="/submit" class="nav-cta">Submit a Parcel</a></li>
   </ul>
+  <button class="nav-mobile-btn" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="/">Home</a>
+  <a href="/about">About</a>
+  <a href="/services">Services</a>
+  <a href="/contact">Contact</a>
+  <a href="/submit">Submit a Parcel</a>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="top">
