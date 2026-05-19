@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Services — LC Engineering & Development</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0B1C2E; --navy-deep: #071422; --navy-mid: #152840;
+    --gold: #C8973A; --gold-light: #E8B45A; --cream: #FAF7F2;
+    --white: #FFFFFF; --gray-soft: #F1EDE6; --gray-mid: #8C8780;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --radius: 4px; --radius-lg: 12px; --transition: 0.3s ease;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--cream); color: var(--navy); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(11,28,46,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(200,151,58,0.15); padding: 0 6%; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .nav-logo { font-family: var(--serif); font-size: 1.2rem; color: var(--white); letter-spacing: 0.02em; text-decoration: none; }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+  .nav-links a { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; transition: color var(--transition); }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold-light); }
+  .nav-cta { background: var(--gold) !important; color: var(--navy-deep) !important; padding: 10px 22px !important; border-radius: var(--radius) !important; font-weight: 600 !important; letter-spacing: 0.05em !important; transition: background var(--transition) !important; text-transform: uppercase !important; }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy-deep) !important; }
+  .nav-mobile-btn { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+  .nav-mobile-btn span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
+  .nav-mobile-menu { display: none; position: fixed; top: 68px; left: 0; right: 0; background: var(--navy-deep); border-bottom: 1px solid rgba(200,151,58,0.15); z-index: 99; padding: 20px 6%; flex-direction: column; }
+  .nav-mobile-menu.open { display: flex; }
+  .nav-mobile-menu a { font-size: 0.9rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color var(--transition); }
+  .nav-mobile-menu a:last-child { border-bottom: none; color: var(--gold); }
+  @media (max-width: 900px) { .nav-links { display: none; } .nav-mobile-btn { display: flex; } }
+
+  .page-hero { background: var(--navy-deep); padding: 140px 6% 80px; position: relative; overflow: hidden; }
+  .page-hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(200,151,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(200,151,58,0.04) 1px, transparent 1px); background-size: 60px 60px; }
+  .page-hero-glow { position: absolute; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(200,151,58,0.1) 0%, transparent 70%); top: -100px; right: -100px; pointer-events: none; }
+  .page-hero-content { position: relative; z-index: 2; max-width: 700px; }
+  .page-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .page-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--gold); }
+  .page-hero h1 { font-family: var(--serif); font-size: clamp(2.4rem, 5vw, 3.5rem); color: var(--white); line-height: 1.12; margin-bottom: 20px; }
+  .page-hero h1 em { font-style: italic; color: var(--gold-light); }
+  .page-hero p { font-size: 1.05rem; color: rgba(255,255,255,0.6); line-height: 1.8; max-width: 580px; }
+
+  section { padding: 100px 6%; }
+  .section-label { display: inline-flex; align-items: center; gap: 10px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+  .section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--gold); }
+  h2.section-title { font-family: var(--serif); font-size: clamp(1.8rem, 3.5vw, 2.6rem); line-height: 1.18; color: var(--navy); margin-bottom: 20px; }
+  h2.section-title em { font-style: italic; color: var(--gold); }
+  .section-intro { font-size: 1rem; color: var(--gray-mid); max-width: 580px; line-height: 1.8; margin-bottom: 56px; }
+
+  /* SERVICES DETAILED */
+  .services-list { display: flex; flex-direction: column; gap: 2px; border: 2px solid var(--navy); border-radius: var(--radius-lg); overflow: hidden; }
+  .service-row { display: grid; grid-template-columns: 80px 1fr 1fr; gap: 0; background: var(--cream); transition: background var(--transition); }
+  .service-row:hover { background: var(--navy); }
+  .service-row:hover .service-num { color: rgba(200,151,58,0.4); }
+  .service-row:hover .service-name { color: var(--white); border-right-color: rgba(255,255,255,0.08); }
+  .service-row:hover .service-desc { color: rgba(255,255,255,0.55); }
+  .service-row:hover .service-tag-pill { background: rgba(200,151,58,0.15); color: var(--gold); }
+  .service-num { font-family: var(--serif); font-size: 1.5rem; color: rgba(11,28,46,0.15); padding: 36px 20px; display: flex; align-items: flex-start; transition: color var(--transition); }
+  .service-name { padding: 36px 32px; border-right: 1px solid rgba(11,28,46,0.08); transition: color var(--transition), border-color var(--transition); }
+  .service-name h3 { font-family: var(--serif); font-size: 1.2rem; color: var(--navy); margin-bottom: 8px; transition: color var(--transition); }
+  .service-name .service-tag-pill { display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); background: rgba(200,151,58,0.1); padding: 4px 10px; border-radius: 2px; transition: all var(--transition); }
+  .service-desc { padding: 36px 32px; font-size: 0.9rem; color: var(--gray-mid); line-height: 1.8; transition: color var(--transition); }
+
+  /* PROCESS */
+  .process-section { background: var(--navy-deep); }
+  .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 56px; position: relative; }
+  .process-grid::before { content: ''; position: absolute; top: 28px; left: 14%; right: 14%; height: 1px; background: linear-gradient(90deg, var(--gold), rgba(200,151,58,0.2)); z-index: 0; }
+  .process-step { text-align: center; padding: 0 20px; position: relative; z-index: 1; }
+  .step-num { width: 56px; height: 56px; border-radius: 50%; background: var(--navy-mid); border: 1px solid rgba(200,151,58,0.3); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 1.3rem; color: var(--gold); margin: 0 auto 28px; transition: background var(--transition); }
+  .process-step:hover .step-num { background: var(--gold); color: var(--navy-deep); border-color: var(--gold); }
+  .process-step h4 { font-family: var(--serif); font-size: 1.05rem; color: var(--white); margin-bottom: 10px; }
+  .process-step p { font-size: 0.83rem; color: rgba(255,255,255,0.45); line-height: 1.75; }
+
+  /* WHO BENEFITS */
+  .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+  .benefit-card { border: 1px solid rgba(11,28,46,0.08); border-radius: var(--radius-lg); padding: 36px; transition: border-color var(--transition), transform var(--transition); }
+  .benefit-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+  .benefit-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  .benefit-card h4 { font-family: var(--serif); font-size: 1.2rem; color: var(--navy); margin-bottom: 12px; }
+  .benefit-card p { font-size: 0.88rem; color: var(--gray-mid); line-height: 1.75; }
+
+  .cta-strip { background: var(--gold); padding: 60px 6%; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+  .cta-strip h3 { font-family: var(--serif); font-size: 1.8rem; color: var(--navy-deep); margin-bottom: 6px; }
+  .cta-strip p { font-size: 0.9rem; color: rgba(11,28,46,0.65); }
+  .btn-dark { background: var(--navy-deep); color: var(--white); padding: 15px 32px; border-radius: var(--radius); font-weight: 600; font-size: 0.88rem; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; transition: background var(--transition); display: inline-block; }
+  .btn-dark:hover { background: var(--navy-mid); }
+
+  footer { background: var(--navy-deep); padding: 56px 6% 32px; border-top: 1px solid rgba(200,151,58,0.1); }
+  .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 0.7fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 28px; }
+  .footer-brand p { font-size: 0.85rem; color: rgba(255,255,255,0.4); line-height: 1.75; margin-top: 12px; max-width: 300px; }
+  .footer-col h5 { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 16px; }
+  .footer-col a { display: block; font-size: 0.85rem; color: rgba(255,255,255,0.55); text-decoration: none; margin-bottom: 10px; transition: color var(--transition); }
+  .footer-col a:hover { color: var(--gold); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: rgba(255,255,255,0.25); flex-wrap: wrap; gap: 8px; }
+
+  @media (max-width: 900px) { .service-row { grid-template-columns: 60px 1fr; } .service-desc { display: none; } .process-grid { grid-template-columns: 1fr 1fr; } .process-grid::before { display: none; } .benefits-grid { grid-template-columns: 1fr 1fr; } .footer-top { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { section { padding: 72px 5%; } .benefits-grid { grid-template-columns: 1fr; } .footer-top { grid-template-columns: 1fr; } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .page-hero-content { animation: fadeUp 0.8s ease forwards; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">LC <span>Engineering</span> & Development</a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/services" class="active">Services</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <li><a href="/submit" class="nav-cta">Submit a Parcel</a></li>
+  </ul>
+  <button class="nav-mobile-btn" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="/">Home</a>
+  <a href="/about">About</a>
+  <a href="/services">Services</a>
+  <a href="/contact">Contact</a>
+  <a href="/submit">Submit a Parcel</a>
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-glow"></div>
+  <div class="page-hero-content">
+    <div class="page-eyebrow">How We Operate</div>
+    <h1>Engineering-Driven<br><em>Land Acquisition</em></h1>
+    <p>Every parcel we pursue goes through a rigorous, engineering-based internal process before we commit to an acquisition. This is how we operate — not a service we sell.</p>
+  </div>
+</div>
+
+<!-- SERVICES LIST -->
+<section style="background: var(--white);">
+  <div class="section-label">Our Process</div>
+  <h2 class="section-title">What Happens Before<br><em>Every Acquisition</em></h2>
+  <p class="section-intro">Each of these activities is conducted internally during our contractual inspection period. They form the engineering-based foundation of every land acquisition decision we make.</p>
+
+  <div class="services-list">
+    <div class="service-row">
+      <div class="service-num">01</div>
+      <div class="service-name">
+        <h3>Site Feasibility Review</h3>
+        <span class="service-tag-pill">Internal Process</span>
+      </div>
+      <div class="service-desc">Every parcel we consider undergoes an engineering-based internal review of constructability, grading, drainage, and site access — carried out during our contractual inspection period before we commit to any acquisition. We evaluate topography, slope constraints, flood zone classification, and site access conditions to determine whether the parcel is technically buildable.</div>
+    </div>
+    <div class="service-row">
+      <div class="service-num">02</div>
+      <div class="service-name">
+        <h3>Infrastructure & Utilities Review</h3>
+        <span class="service-tag-pill">Due Diligence</span>
+      </div>
+      <div class="service-desc">We conduct an engineering-based evaluation of water, sewer, stormwater, and utility access as part of our internal due diligence — ensuring every parcel we pursue is realistically serviceable for residential development. Utility proximity, connection feasibility, and infrastructure compatibility are all evaluated before we proceed.</div>
+    </div>
+    <div class="service-row">
+      <div class="service-num">03</div>
+      <div class="service-name">
+        <h3>Preliminary Cost Modeling</h3>
+        <span class="service-tag-pill">Risk Reduction</span>
+      </div>
+      <div class="service-desc">Before committing to a purchase, we apply engineering-based cost reasoning to identify major development cost drivers and risk — informing every acquisition decision we make internally. Order-of-magnitude estimates for site prep, utility connections, and infrastructure work are developed to assess the overall development economics of each parcel.</div>
+    </div>
+    <div class="service-row">
+      <div class="service-num">04</div>
+      <div class="service-name">
+        <h3>Development Readiness Screening</h3>
+        <span class="service-tag-pill">Early Stage</span>
+      </div>
+      <div class="service-desc">We apply engineering-based, systems-level thinking to identify technical risk early — so every parcel we bring to builders has already been vetted for development readiness before any transaction closes. Zoning compatibility, permit feasibility, and environmental constraints are evaluated as part of this comprehensive screening.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS STEPS -->
+<section class="process-section">
+  <div class="section-label">Deal Flow</div>
+  <h2 class="section-title" style="color:var(--white)">From Parcel to <em>Assignment</em><br>in Four Steps</h2>
+  <p class="section-intro" style="color:rgba(255,255,255,0.5); margin-bottom:0;">A disciplined, engineering-based internal process behind every land acquisition we pursue.</p>
+
+  <div class="process-grid">
+    <div class="process-step">
+      <div class="step-num">1</div>
+      <h4>Parcel Identification</h4>
+      <p>We identify vacant land parcels that meet our acquisition criteria — location, lot size, zoning, and residential development potential.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">2</div>
+      <h4>Engineering-Based Screening</h4>
+      <p>We apply engineering-based thinking to evaluate site conditions, grading, utilities, and constructability — entirely internally, before entering any contract.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">3</div>
+      <h4>Cost & Risk Modeling</h4>
+      <p>We work through cost drivers and infrastructure gaps using engineering-based cost reasoning — so every acquisition decision is grounded in numbers, not assumptions.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">4</div>
+      <h4>Acquisition & Assignment</h4>
+      <p>Armed with engineering-based insight, we move forward, renegotiate terms, or walk away — then assign the contract to a qualified residential builder.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHO BENEFITS -->
+<section>
+  <div class="section-label">Who Benefits</div>
+  <h2 class="section-title">The Right Partner for<br><em>Every Side of the Deal</em></h2>
+  <p class="section-intro">LC Engineering operates on both sides of the transaction. Here's how each party benefits from our engineering-based approach.</p>
+
+  <div class="benefits-grid">
+    <div class="benefit-card">
+      <div class="benefit-label">Deal Sourcing</div>
+      <h4>Landowners & Sellers</h4>
+      <p>If you own vacant land, we work directly with you as a principal buyer — no agents, no commissions on your side. We move quickly and make decisions based on our own internal evaluation, not a third party's opinion.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-label">Contract Assignment</div>
+      <h4>Residential Builders</h4>
+      <p>Every parcel we assign has been screened for constructability, infrastructure readiness, and development risk through our internal engineering-based process. You receive land that has already been technically vetted.</p>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-label">Contract Assignment</div>
+      <h4>Real Estate Investors</h4>
+      <p>Land we assign has already been evaluated through an engineering-based lens. Investors can engage with greater certainty, knowing the technical groundwork has been done before the contract reaches them.</p>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <div>
+    <h3>Know a Parcel That Fits?</h3>
+    <p>Submit it and we'll evaluate it against our acquisition criteria within 24 hours.</p>
+  </div>
+  <a href="/submit" class="btn-dark">Submit a Parcel</a>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a class="nav-logo" href="/" style="text-decoration:none; font-size:1.1rem;">LC <span>Engineering</span> & Development</a>
+      <p>Engineering-based land development feasibility analysis for residential construction projects. We evaluate, acquire, and assign land with engineering rigor at every step.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Navigate</h5>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/services">Services</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <a href="/submit">Submit a Parcel</a>
+      <a href="/contact">Book a Call</a>
+    </div>
+    <div class="footer-col">
+      <h5>Legal</h5>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Service</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 LC Engineering & Development LLC. All rights reserved.</span>
+    <span>LC Engineering operates as a principal buyer — not a licensed real estate broker or agent.</span>
+  </div>
+</footer>
+
+<script>
+function toggleNav() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+</script>
+</body>
+</html>
