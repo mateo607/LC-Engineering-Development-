@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Submit a Parcel — LC Engineering & Development</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0B1C2E; --navy-deep: #071422; --navy-mid: #152840;
+    --gold: #C8973A; --gold-light: #E8B45A; --cream: #FAF7F2;
+    --white: #FFFFFF; --gray-soft: #F1EDE6; --gray-mid: #8C8780;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --radius: 4px; --radius-lg: 12px; --transition: 0.3s ease;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--navy-deep); color: var(--white); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(11,28,46,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(200,151,58,0.15); padding: 0 6%; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .nav-logo { font-family: var(--serif); font-size: 1.2rem; color: var(--white); letter-spacing: 0.02em; text-decoration: none; }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+  .nav-links a { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; transition: color var(--transition); }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold-light); }
+  .nav-cta { background: var(--gold) !important; color: var(--navy-deep) !important; padding: 10px 22px !important; border-radius: var(--radius) !important; font-weight: 600 !important; letter-spacing: 0.05em !important; transition: background var(--transition) !important; text-transform: uppercase !important; }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy-deep) !important; }
+  .nav-mobile-btn { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+  .nav-mobile-btn span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
+  .nav-mobile-menu { display: none; position: fixed; top: 68px; left: 0; right: 0; background: var(--navy-deep); border-bottom: 1px solid rgba(200,151,58,0.15); z-index: 99; padding: 20px 6%; flex-direction: column; }
+  .nav-mobile-menu.open { display: flex; }
+  .nav-mobile-menu a { font-size: 0.9rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color var(--transition); }
+  .nav-mobile-menu a:last-child { border-bottom: none; color: var(--gold); }
+  @media (max-width: 900px) { .nav-links { display: none; } .nav-mobile-btn { display: flex; } }
+
+  .page-grid-bg { position: fixed; inset: 0; background-image: linear-gradient(rgba(200,151,58,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(200,151,58,0.03) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; z-index: 0; }
+
+  .submit-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; min-height: 100vh; padding: 140px 6% 80px; position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
+
+  .submit-info { position: sticky; top: 100px; }
+  .page-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .page-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--gold); }
+  .submit-info h1 { font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 3rem); color: var(--white); line-height: 1.15; margin-bottom: 20px; }
+  .submit-info h1 em { font-style: italic; color: var(--gold-light); }
+  .submit-info p { font-size: 0.95rem; color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 48px; }
+
+  .steps-list { display: flex; flex-direction: column; gap: 24px; }
+  .step-item { display: flex; gap: 16px; }
+  .step-icon { width: 36px; height: 36px; border-radius: 6px; background: rgba(200,151,58,0.12); border: 1px solid rgba(200,151,58,0.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .step-icon svg { width: 16px; height: 16px; stroke: var(--gold); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .step-text { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.7; }
+
+  .form-container { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-lg); padding: 48px; }
+  .form-header { margin-bottom: 32px; }
+  .form-header h2 { font-family: var(--serif); font-size: 1.5rem; color: var(--white); margin-bottom: 8px; }
+  .form-header p { font-size: 0.85rem; color: rgba(255,255,255,0.45); }
+  .form-cta { width: 100%; background: var(--gold); color: var(--navy-deep); border: none; padding: 18px; border-radius: var(--radius); font-family: var(--sans); font-size: 1rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; transition: background var(--transition); text-decoration: none; display: block; text-align: center; }
+  .form-cta:hover { background: var(--gold-light); }
+
+  .divider { height: 1px; background: rgba(255,255,255,0.08); margin: 32px 0; }
+
+  .alt-contact { text-align: center; }
+  .alt-contact p { font-size: 0.85rem; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+  .alt-contact a { color: var(--gold); text-decoration: none; font-weight: 500; transition: color var(--transition); }
+  .alt-contact a:hover { color: var(--gold-light); }
+
+  footer { background: var(--navy-deep); padding: 56px 6% 32px; border-top: 1px solid rgba(200,151,58,0.1); position: relative; z-index: 1; }
+  .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 0.7fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 28px; }
+  .footer-brand p { font-size: 0.85rem; color: rgba(255,255,255,0.4); line-height: 1.75; margin-top: 12px; max-width: 300px; }
+  .footer-col h5 { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 16px; }
+  .footer-col a { display: block; font-size: 0.85rem; color: rgba(255,255,255,0.55); text-decoration: none; margin-bottom: 10px; transition: color var(--transition); }
+  .footer-col a:hover { color: var(--gold); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: rgba(255,255,255,0.25); flex-wrap: wrap; gap: 8px; }
+
+  @media (max-width: 900px) { .submit-layout { grid-template-columns: 1fr; gap: 48px; } .submit-info { position: static; } .footer-top { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .submit-layout { padding: 120px 5% 60px; } .form-container { padding: 32px 24px; } .footer-top { grid-template-columns: 1fr; } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .submit-layout { animation: fadeUp 0.8s ease forwards; }
+</style>
+</head>
+<body>
+
+<div class="page-grid-bg"></div>
+
+<nav>
+  <a class="nav-logo" href="/">LC <span>Engineering</span> & Development</a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <li><a href="/submit" class="nav-cta active">Submit a Parcel</a></li>
+  </ul>
+  <button class="nav-mobile-btn" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="/">Home</a>
+  <a href="/about">About</a>
+  <a href="/services">Services</a>
+  <a href="/contact">Contact</a>
+  <a href="/submit">Submit a Parcel</a>
+</div>
+
+<div class="submit-layout">
+  <div class="submit-info">
+    <div class="page-eyebrow">Know a Parcel?</div>
+    <h1>Tell Us About<br>the <em>Land</em></h1>
+    <p>If you own vacant land or know of a parcel that could fit residential development, reach out. We evaluate it, enter into a purchase agreement as principal, and take it from there.</p>
+
+    <div class="steps-list">
+      <div class="step-item">
+        <div class="step-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="step-text">We review the parcel details within 24 hours and determine whether it fits our acquisition criteria.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="step-text">If it's a fit, we move to put the parcel under contract as principal — LC Engineering enters the purchase agreement directly.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <div class="step-text">Our team conducts a full internal engineering-based feasibility evaluation during the inspection period.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.12 1.18 2 2 0 012.1.02h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.97 6.97l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+        <div class="step-text">We proceed, renegotiate, or walk away — then assign the contract to a qualified residential builder.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-container">
+    <div class="form-header">
+      <h2>Submit Your Parcel</h2>
+      <p>Fill out our quick form — it takes less than 1 minute.</p>
+    </div>
+    <a href="https://api.leadconnectorhq.com/widget/form/1t5mvnqDNFJsBOctN7qj?notrack=true" target="_blank" rel="noopener noreferrer" class="form-cta">Open Submission Form →</a>
+    <div class="divider"></div>
+    <div class="alt-contact">
+      <p>Prefer to talk first?</p>
+      <a href="mailto:mateo@lcend.com">Schedule a call with our team →</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a class="nav-logo" href="/" style="text-decoration:none; font-size:1.1rem;">LC <span>Engineering</span> & Development</a>
+      <p>Engineering-based land development feasibility analysis for residential construction projects. We evaluate, acquire, and assign land with engineering rigor at every step.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Navigate</h5>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/services">Services</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <a href="/submit">Submit a Parcel</a>
+      <a href="/contact">Book a Call</a>
+    </div>
+    <div class="footer-col">
+      <h5>Legal</h5>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Service</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 LC Engineering & Development LLC. All rights reserved.</span>
+    <span>LC Engineering operates as a principal buyer — not a licensed real estate broker or agent.</span>
+  </div>
+</footer>
+
+<script>
+function toggleNav() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+</script>
+</body>
+</html>
