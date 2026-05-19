@@ -59,6 +59,19 @@
   }
   .nav-logo span { color: var(--gold); }
 
+  
+  .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+  .nav-links a { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s ease; }
+  .nav-links a:hover { color: #E8B45A; }
+  .nav-cta { background: #C8973A !important; color: #071422 !important; padding: 10px 22px !important; border-radius: 4px !important; font-weight: 600 !important; }
+  .nav-mobile-btn { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+  .nav-mobile-btn span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; }
+  .nav-mobile-menu { display: none; position: fixed; top: 68px; left: 0; right: 0; background: #071422; border-bottom: 1px solid rgba(200,151,58,0.15); z-index: 99; padding: 20px 6%; flex-direction: column; }
+  .nav-mobile-menu.open { display: flex; }
+  .nav-mobile-menu a { font-size: 0.9rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .nav-mobile-menu a:last-child { border-bottom: none; color: #C8973A; }
+  @media (max-width: 900px) { .nav-links { display: none; } .nav-mobile-btn { display: flex; } .nav-back { display: none; } }
+
   .nav-back {
     font-size: 0.82rem;
     font-weight: 500;
@@ -239,8 +252,24 @@
 
 <nav>
   <a class="nav-logo" href="/">LC <span>Engineering</span> & Development</a>
-  <a class="nav-back" href="/">← Back to Home</a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <li><a href="/submit" class="nav-cta">Submit a Parcel</a></li>
+  </ul>
+  <button class="nav-mobile-btn" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="/">Home</a>
+  <a href="/about">About</a>
+  <a href="/services">Services</a>
+  <a href="/contact">Contact</a>
+  <a href="/submit">Submit a Parcel</a>
+</div>
 
 <div class="page-hero">
   <div class="page-hero-content">
