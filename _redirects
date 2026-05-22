@@ -1,6 +1,2 @@
-/about /about.html 200
-/services /services.html 200
-/submit /submit.html 200
-/contact /contact.html 200
-/privacy /privacy.html 200
-/terms /terms.html 200
+# Netlify Pretty URLs handles /page → /page.html automatically.
+# No manual rewrites needed.
