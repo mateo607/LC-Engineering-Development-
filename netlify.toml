@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/submit"
+  to = "/submit.html"
+  status = 200
+  force = true
