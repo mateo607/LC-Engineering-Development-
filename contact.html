@@ -298,10 +298,11 @@ async function submitContactForm() {
   };
 
   try {
-    const response = await fetch(
-      'https://services.leadconnectorhq.com/hooks/bp4lwvcT0gLJp32JbndW/webhook-trigger/96052fe4-e940-415a-8e63-a923fff0c01a',
-      { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }
-    );
+    const response = await fetch('/api/message', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
     if (response.ok) {
       document.getElementById('contact-form').style.display = 'none';
       document.getElementById('contact-success').style.display = 'block';
